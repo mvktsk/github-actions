@@ -38,3 +38,4 @@ jobs:
       with:
         repository: ${{ github.event.inputs.repo }}
         ref: ${{ github.event.inputs.ref }}
+        token: ${{ secrets.WEBHOOK }}

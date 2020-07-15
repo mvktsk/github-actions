@@ -6,9 +6,11 @@ on:
  workflow_dispatch:
     inputs:
       repo:
+         # Repository name with owner. For example, VirtoCommerce/platform
         description: 'repository'
         required: true
       ref:
+         # The branch. For example, master
         description: 'repository branch'
         required: true
 

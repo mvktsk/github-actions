@@ -97,7 +97,7 @@ async function getCommitCount(baseBranch) {
         }
     } catch (err) {
         core.setFailed(`Could not get commit counts because: ${err.message}`);
-        process.exit(0);
+        process.exit(1);
     }
     return result;
 }
@@ -149,10 +149,14 @@ else {
         }
     });
 }
-branchName = github.context.eventName === 'pull_request' ? 'PR-' + github.context.payload.pull_request.head.ref : github.context.ref;
+branchName = github.context.eventName === 'pull_request' ? github.context.payload.pull_request.head.ref : github.context.ref;
+if (branchName.indexOf('refs/heads/') > -1) {
+    branchName = branchName.slice('refs/heads/'.length);
+}
+
 if (suffix === "") {
-    getCommitCount(branchName).then(result =>{pushOutputs(branchName, prefix, result, moduleId);})
-    
+    getCommitCount(branchName).then(result => { pushOutputs(branchName, prefix, result, moduleId); })
+
 } else {
     pushOutputs(branchName, prefix, suffix, moduleId);
 }

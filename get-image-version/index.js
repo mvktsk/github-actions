@@ -28,8 +28,8 @@ function findFile(base, name, files, result) {
                 }
             }
         )
-        return result
     }
+    return result;
 }
 
 function pushOutputs(branchName, prefix, suffix, moduleId) {

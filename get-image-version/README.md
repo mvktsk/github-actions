@@ -8,9 +8,33 @@ No imputs required
 
 ## Outputs
 
-### `version`
+### `branchName`
 
-'Version value formatted as prefix.suffix or PR-branch name-prefix.suffix'
+Triggered branch name
+
+### `prefix`
+
+Version prefix value
+
+### `suffix`
+
+Version suffix value
+
+### `sha`
+
+Version SHA value
+
+### `shortVersion`
+
+Version value formatted as prefix-suffix
+
+### `fullVersion`
+
+Version value formatted as branchName-prefix-suffix
+
+### `tag`
+
+Version value formatted as branchName-prefix-sha
 
 ### `moduleId`
 
@@ -27,6 +51,12 @@ Module Id value.
 Get the outputs:
 
 ```
-${{ steps.image.outputs.version }}
+${{ steps.image.branchName }}
+${{ steps.image.prefix }}
+${{ steps.image.suffix }}
+${{ steps.image.sha }}
+${{ steps.image.shortVersion }}
+${{ steps.image.fullVersion }}
+${{ steps.image.outputs.tag }}
 ${{ steps.image.outputs.moduleId }}
 ```

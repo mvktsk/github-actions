@@ -120,7 +120,7 @@ async function getCommitCount(baseBranch) {
       };
       options.cwd = './';
   
-      
+      baseBranch = 'dev'
       await exec.exec(`${src}/commit-count.sh`, [baseBranch], options);
       const { commitCount } = JSON.parse(output);
   

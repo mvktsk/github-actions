@@ -35,7 +35,7 @@ function findFile(base, name, files, result) {
 function pushOutputs(branchName, prefix, suffix, moduleId) {
     const sha = github.context.eventName === 'pull_request' ? github.context.payload.pull_request.head.sha.substring(0, 8) : github.context.sha.substring(0, 8);
     const shortVersion = prefix + '-' + suffix;
-    const shaVersion = branchName + '-' + prefix + '-' + sha;
+    const tag = branchName + '-' + prefix + '-' + sha;
     const fullVersion = branchName + '-' + prefix + '.' + suffix;
 
     core.setOutput("branchName", branchName);
@@ -44,7 +44,7 @@ function pushOutputs(branchName, prefix, suffix, moduleId) {
     core.setOutput("moduleId", moduleId);
     core.setOutput("sha", sha);
     core.setOutput("shortVersion", shortVersion);
-    core.setOutput("shaVersion", shaVersion);
+    core.setOutput("tag", tag);
     core.setOutput("fullVersion", fullVersion);
 
     console.log(`Branch name is: ${branchName}`);
@@ -53,7 +53,7 @@ function pushOutputs(branchName, prefix, suffix, moduleId) {
     console.log(`Module Id is: ${moduleId}`);
     console.log(`SHA is: ${sha}`);
     console.log(`Short version is: ${shortVersion}`);
-    console.log(`SHA version is: ${shaVersion}`);
+    console.log(`Tag is: ${tag}`);
     console.log(`Full version is: ${fullVersion}`);
 }
 async function getCommitCount(baseBranch) {

@@ -13,7 +13,7 @@ outputs:
     description: 'Version SHA value'
   shortVersion:
     description: 'Version value formatted as prefix-suffix'
-  shaVersion:
+  tag:
     description: 'Version value formatted as branchName-prefix-sha'
   fullVersion:
     description: 'Version value formatted as branchName-prefix-suffix'

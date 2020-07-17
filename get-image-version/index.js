@@ -11,6 +11,7 @@ const parser = new xml2js.Parser();
 const src = __dirname;
 
 function findFile(base, name, files, result) {
+    var result = {};
     if (fs.existsSync(base)) {
         files = files || fs.readdirSync(base)
         result = result || []

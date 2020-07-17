@@ -49,7 +49,9 @@ function pushOutputs(prefix, suffix, moduleId) {
         branchName = branchName.slice('refs/heads/'.length);
     }
 
-    version = branchPrefix + prefix + (suffix != '' ? '-' + suffix : '-' + getCommitCount(branchName) );
+    getCommitCount(branchName).then( result =>{version = branchPrefix + prefix + (suffix != '' ? '-' + suffix : '-' + result )} )
+
+//    version = branchPrefix + prefix + (suffix != '' ? '-' + suffix : '-' + getCommitCount(branchName) );
     
     core.setOutput("version", version);
     core.setOutput("moduleId", moduleId)
@@ -120,7 +122,6 @@ async function getCommitCount(baseBranch) {
       };
       options.cwd = './';
   
-      baseBranch = 'dev'
       await exec.exec(`${src}/commit-count.sh`, [baseBranch], options);
       const { commitCount } = JSON.parse(output);
   

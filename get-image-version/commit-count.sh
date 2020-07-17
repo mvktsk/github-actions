@@ -9,4 +9,5 @@ baseBranchPath=$(git branch -r | grep "$baseBranch" | xargs)
 
 commitCount=$(git rev-list --count "$baseBranchPath")
 
-echo '{"commitCount": "'"$commitCount"'"}'
+echo '{"commitCount": "'"$(git rev-parse --show-toplevel)"'"}'
+#echo '{"commitCount": "'"$commitCount"'"}'

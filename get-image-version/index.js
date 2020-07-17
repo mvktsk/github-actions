@@ -11,23 +11,25 @@ const parser = new xml2js.Parser();
 const src = __dirname;
 
 function findFile(base, name, files, result) {
-    files = files || fs.readdirSync(base)
-    result = result || []
+    if (fs.existsSync(base)) {
+        files = files || fs.readdirSync(base)
+        result = result || []
 
-    files.forEach(
-        function (file) {
-            var newbase = path.join(base, file)
-            if (fs.statSync(newbase).isDirectory()) {
-                result = findFile(newbase, name, fs.readdirSync(newbase), result)
-            }
-            else {
-                if (file == name) {
-                    result.push(newbase)
+        files.forEach(
+            function (file) {
+                var newbase = path.join(base, file)
+                if (fs.statSync(newbase).isDirectory()) {
+                    result = findFile(newbase, name, fs.readdirSync(newbase), result)
+                }
+                else {
+                    if (file == name) {
+                        result.push(newbase)
+                    }
                 }
             }
-        }
-    )
-    return result
+        )
+        return result
+    }
 }
 
 function pushOutputs(branchName, prefix, suffix, moduleId) {

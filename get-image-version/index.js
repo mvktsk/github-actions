@@ -6,6 +6,7 @@ const path = require('path')
 const xml2js = require('xml2js');
 const { CONNREFUSED } = require('dns');
 const { basename } = require('path');
+const { Console } = require('console');
 const parser = new xml2js.Parser();
 
 const src = __dirname;
@@ -127,6 +128,7 @@ else {
                 if (!err) {
                     var propertyGroup = json.Project.PropertyGroup.pop();
 
+                    console.log(propertyGroup);
                     prefix = propertyGroup.VersionPrefix[0].trim();
                     suffix = propertyGroup.VersionSuffix[0].trim();
                     moduleId = "";

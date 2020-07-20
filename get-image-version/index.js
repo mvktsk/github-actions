@@ -128,7 +128,7 @@ else {
                 if (!err) {
                     var propertyGroup = json.Project.PropertyGroup.pop();
 
-                    console.log(propertyGroup);
+                    console.log(propertyGroup.VersionPrefix);
 //                    prefix = propertyGroup.VersionPrefix[0].trim();
 //                    suffix = propertyGroup.VersionSuffix[0].trim();
                     moduleId = "";

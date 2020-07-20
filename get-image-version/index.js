@@ -126,6 +126,7 @@ else {
         if (!err) {
             parser.parseString(data, function (err, json) {
                 if (!err) {
+                    console.log(propertyGroup.json);
                     var propertyGroup = json.Project.PropertyGroup.pop();
 
                     console.log(propertyGroup.VersionPrefix);

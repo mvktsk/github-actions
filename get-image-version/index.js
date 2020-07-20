@@ -129,8 +129,8 @@ else {
                     var propertyGroup = json.Project.PropertyGroup.pop();
 
                     console.log(propertyGroup);
-                    prefix = propertyGroup.VersionPrefix[0].trim();
-                    suffix = propertyGroup.VersionSuffix[0].trim();
+//                    prefix = propertyGroup.VersionPrefix[0].trim();
+//                    suffix = propertyGroup.VersionSuffix[0].trim();
                     moduleId = "";
                 }
             });

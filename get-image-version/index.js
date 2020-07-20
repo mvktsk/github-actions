@@ -38,7 +38,7 @@ function pushOutputs(branchName, prefix, suffix, moduleId) {
     const sha = github.context.eventName === 'pull_request' ? github.context.payload.pull_request.head.sha.substring(0, 8) : github.context.sha.substring(0, 8);
     const shortVersion = prefix + '-' + suffix;
     const tag = branchName + '-' + prefix + '-' + sha;
-    const fullVersion = branchName + '-' + prefix + '.' + suffix;
+    const fullVersion = branchName + '-' + prefix + '-' + suffix;
 
     core.setOutput("branchName", branchName);
     core.setOutput("prefix", prefix);

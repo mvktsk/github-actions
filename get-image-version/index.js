@@ -126,12 +126,10 @@ else {
         if (!err) {
             parser.parseString(data, function (err, json) {
                 if (!err) {
-                    console.log(json);
                     var propertyGroup = json.Project.PropertyGroup.pop();
 
-                    console.log(propertyGroup.VersionPrefix);
-//                    prefix = propertyGroup.VersionPrefix[0].trim();
-//                    suffix = propertyGroup.VersionSuffix[0].trim();
+                    prefix = propertyGroup[1].VersionPrefix[0].trim();
+                    suffix = propertyGroup[1].VersionSuffix[0].trim();
                     moduleId = "";
                 }
             });

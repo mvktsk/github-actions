@@ -1,10 +1,10 @@
 # Get Docker Image version javascript action
 
-This action grabs Version and Version suffix from Directory.Build.Props. If Version suffix not present calculate it as a branch commits count
+This action grabs Version and Version suffix from Directory.Build.Props (for Platform and Storefront) or from module.manifest (for modules). If Version suffix does not present calculate it as a branch commits count.
 
 ## Inputs
 
-No imputs required
+No inputs required
 
 ## Outputs
 

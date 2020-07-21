@@ -1,0 +1,17 @@
+{
+  "name": "vc-module-ci",
+  "version": "1.0.0",
+  "description": "This action grabs Version and Version suffix from Directory.Build.Props (for Platform and Storefront) or from module.manifest (for modules). If Version suffix does not present calculate it as a branch commits count.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0"
+  }
+}

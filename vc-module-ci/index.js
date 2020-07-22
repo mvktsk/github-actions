@@ -24,12 +24,11 @@ async function installVcGlobalTool() {
         let err = '';
 
         await exec.exec(`dotnet`, ['tool', 'install', '--global', 'VirtoCommerce.GlobalTool', '--version', '1.0.0'], options);
-        
+        console.log('VirtoCommerce.GlobalTool installed')
     } catch (err) {
         core.setFailed(`Could not Install VirtoCommerce.GlobalTool because: ${err.message}`);
         process.exit(1);
     }
-    return result;
 }
 
 //Build Package
@@ -39,12 +38,11 @@ async function buildPackage() {
         let err = '';
 
         await exec.exec(`vc-build`, ['Compress', '-skip', 'Test'], options);
-        
+        console.log('Package build')
     } catch (err) {
         core.setFailed(`Could not Build Package because: ${err.message}`);
         process.exit(1);
     }
-    return result;
 }
 
 

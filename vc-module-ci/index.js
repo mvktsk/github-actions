@@ -5,6 +5,8 @@ const github = require('@actions/github');
 const src = __dirname;
 
 // These are option configurations for the @actions/exec lib`
+let output = '';
+let err = '';
 const options = {};
 options.listeners = {
     stdout: (data) => {
@@ -20,9 +22,6 @@ options.cwd = './';
 //Install VirtoCommerce.GlobalTool
 async function installVcGlobalTool() {
     try {
-        
-        let err = '';
-
         await exec.exec(`dotnet`, ['tool', 'install', '--global', 'VirtoCommerce.GlobalTool', '--version', '1.0.0'], options);
         console.log('VirtoCommerce.GlobalTool installed')
     } catch (err) {
@@ -34,9 +33,6 @@ async function installVcGlobalTool() {
 //Build Package
 async function buildPackage() {
     try {
-        
-        let err = '';
-
         await exec.exec(`vc-build`, ['Compress', '-skip', 'Test'], options);
         console.log('Package build')
     } catch (err) {

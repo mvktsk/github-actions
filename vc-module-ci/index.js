@@ -50,6 +50,7 @@ async function beginSonarCloud() {
         commandStr += " /d:sonar.login='" + token + "'";
         commandStr += " /d:sonar.branch='" + branchName + "'";
 
+        console.log('commandStr')
         await exec.exec(`commandStr`, [], options);
     } catch (err) {
         core.setFailed(`Could not Begin SonarCloud because: ${err.message}`);

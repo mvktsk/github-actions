@@ -75,7 +75,7 @@ async function endSonarCloud() {
     console.log('SonarCloud End')
     try {
         commandStr = "dotnet sonarscanner end /d:sonar.login=" + token;
-        await exec.exec(`vc-build`, ['Compile'], options);
+        await exec.exec(commandStr, [], options);
     } catch (err) {
         core.setFailed(`Could not End SonarCloud because: ${err.message}`);
         process.exit(1);

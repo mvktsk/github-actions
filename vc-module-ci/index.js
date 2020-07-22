@@ -44,13 +44,12 @@ async function beginSonarCloud() {
             branchName = branchName.slice('refs/heads/'.length);
         }
     
-        commandStr = "dotnet sonarscanner begin /k:'VirtoCommerce_" + repoName + "'";
-        commandStr += " /o:'virto-commerce'";
-        commandStr += " /d:sonar.host.url='https://sonarcloud.io'";
-        commandStr += " /d:sonar.login='" + token + "'";
-        commandStr += " /d:sonar.branch='" + branchName + "'";
+        commandStr = "dotnet sonarscanner begin /k:VirtoCommerce_" + repoName;
+        commandStr += " /o:virto-commerce";
+        commandStr += " /d:sonar.host.url=https://sonarcloud.io";
+        commandStr += " /d:sonar.login=" + token;
+        commandStr += " /d:sonar.branch=" + branchName;
 
-        console.log(commandStr)
         await exec.exec(commandStr, [], options);
     } catch (err) {
         core.setFailed(`Could not Begin SonarCloud because: ${err.message}`);
